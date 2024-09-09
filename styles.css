@@ -24,7 +24,6 @@ body {
     z-index: 1;
 }
 
-/* Ajuste de la imagen de fondo */
 body::before {
     content: '';
     position: absolute;
@@ -33,7 +32,7 @@ body::before {
     width: 100%;
     height: 100%;
     background: url('subte-1.jpg') no-repeat center top;
-    background-size: contain;
+    background-size: cover;
     z-index: -1;
     filter: brightness(0.7);
 }
@@ -73,53 +72,53 @@ body::before {
     color: #cccccc;
 }
 
-/* Estilos del formulario de suscripción */
-.subscription-form {
-    margin-top: 30px;
-    text-align: center;
+/* Efecto neón */
+.neon-box {
+    border: 3px solid #ff00ff;
+    box-shadow: 0 0 10px #ff00ff, 0 0 20px #00ccff, 0 0 30px #ff00ff;
+    animation: neon-flicker 2s infinite alternate;
 }
 
-.subscription-title {
-    font-size: 1.8rem;
-    color: #ff00ff;
-    margin-bottom: 10px;
+@keyframes neon-flicker {
+    0%, 100% {
+        box-shadow: 0 0 10px #ff00ff, 0 0 20px #00ccff, 0 0 30px #ff00ff;
+    }
+    100% {
+        box-shadow: 0 0 5px #ff00ff, 0 0 10px #00ccff;
+    }
 }
 
-.subscription-text {
-    font-size: 1rem;
-    color: #cccccc;
-    margin-bottom: 15px;
-}
-
-.form {
+/* Estilos de los botones de redes sociales */
+.social-container {
+    margin-top: 40px; /* Separación mayor del cuadro neón */
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    gap: 15px;
 }
 
-.input-email {
-    padding: 10px 15px;
-    width: 300px;
-    border: 2px solid #00ccff;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    outline: none;
-    font-size: 1rem;
-    color: #1a1a1d;
+.social-btn {
+    padding: 10px;
+    border-radius: 50%;
+    background-color: #1a1a1d;
+    border: 2px solid #ff00ff;
+    box-shadow: 0 0 10px #ff00ff, 0 0 20px #00ccff;
+    transition: all 0.3s ease;
 }
 
-.btn-subscribe {
-    padding: 10px 20px;
+.social-btn img {
+    width: 40px;
+    height: 40px;
+}
+
+.social-btn:hover {
     background-color: #ff00ff;
-    border: none;
-    border-radius: 5px;
-    color: #ffffff;
-    font-weight: bold;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    box-shadow: 0 0 15px #ff00ff, 0 0 30px #00ccff;
 }
 
-.btn-subscribe:hover {
-    background-color: #e600e6;
+.social-btn.instagram {
+    color: #e1306c;
+}
+
+.social-btn.tiktok {
+    color: #69c9d0;
 }

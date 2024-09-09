@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruta Subterránea - Disco León</title>
+    <link rel="stylesheet" href="mapa-leon-styles.css">
+</head>
+<body>
+
+    <!-- Menú de Navegación -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Subterráneo</a>
+            <button class="nav-toggle" id="nav-toggle">
+                <span class="nav-toggle-icon"></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Inicio</a></li>
+                <li class="nav-item"><a href="album.html" class="nav-link">Disco León</a></li>
+                <li class="nav-item"><a href="mapa-leon.html" class="nav-link">Ruta Subterránea</a></li>
+                <li class="nav-item"><a href="band-page.html" class="nav-link">Biografía</a></li>
+                <li class="nav-item"><a href="store.html" class="nav-link">Tienda</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Sección del Mapa de León con el Subterráneo Imaginario -->
+    <section class="interactive-map" style="padding-top: 70px; text-align: center;">
+        <h1>Explora León con Disco León</h1>
+        <div class="map-container">
+            <img src="mapa-leon.png" alt="Mapa de León" class="city-map">
+            
+            <!-- Estaciones del Subterráneo Imaginario -->
+            <div class="station" style="top: 40%; left: 50%;" data-song="Toda la noche" data-spotify="https://open.spotify.com/embed/track/7i2E6TIxjhZWIl85c51748?utm_source=generator">
+                <div class="station-marker"></div>
+                <span class="station-name">Toda la noche</span>
+            </div>
+            <div class="station" style="top: 53%; left: 60%;" data-song="Disco León" data-spotify="URL_SPOTIFY_DISCO_LEON">
+                <div class="station-marker"></div>
+                <span class="station-name">Disco León</span>
+            </div>
+            <div class="station" style="top: 33%; left: 40%;" data-song="Amanecer" data-spotify="URL_SPOTIFY_AMANECER">
+                <div class="station-marker"></div>
+                <span class="station-name">Amanecer</span>
+            </div>
+            <div class="station" style="top: 55%; left: 25%;" data-song="Funky Love" data-spotify="URL_SPOTIFY_FUNKY_LOVE">
+                <div class="station-marker"></div>
+                <span class="station-name">Funky Love</span>
+            </div>
+            <div class="station" style="top: 25%; left: 65%;" data-song="El Vuelo" data-spotify="URL_SPOTIFY_EL_VUELO">
+                <div class="station-marker"></div>
+                <span class="station-name">El Vuelo</span>
+            </div>
+            <div class="station" style="top: 25%; left: 30%;" data-song="Lavanda" data-spotify="URL_SPOTIFY_LAVANDA">
+                <div class="station-marker"></div>
+                <span class="station-name">Lavanda</span>
+            </div>
+            <!-- Nueva estación: La Pega -->
+            <div class="station" style="top: 60%; left: 43%;" data-song="La Pega" data-spotify="URL_SPOTIFY_LA_PEGA">
+                <div class="station-marker"></div>
+                <span class="station-name">La Pega</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ventana Emergente de Detalles de Canción -->
+    <div class="song-details hidden">
+        <h2 id="song-title"></h2>
+        <div id="spotify-embed-container"></div> <!-- Contenedor para el iframe de Spotify -->
+        <button class="btn-close">Cerrar</button>
+    </div>
+
+    <script src="mapa-leon-scripts.js"></script>
+    <script>
+        // Toggle del menú de navegación en móvil
+        document.getElementById('nav-toggle').addEventListener('click', function () {
+            document.getElementById('nav-menu').classList.toggle('active');
+        });
+
+        // Script para mostrar el iframe correcto en el pop-up
+        document.querySelectorAll('.station').forEach(station => {
+            station.addEventListener('click', function () {
+                const songTitle = this.getAttribute('data-song');
+                const spotifyUrl = this.getAttribute('data-spotify');
+
+                document.getElementById('song-title').innerText = songTitle;
+                document.getElementById('spotify-embed-container').innerHTML = `<iframe style="border-radius:12px; width: 100%; height: 352px;" src="${spotifyUrl}" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`;
+                document.querySelector('.song-details').classList.remove('hidden');
+            });
+        });
+
+        // Cerrar el pop-up
+        document.querySelector('.btn-close').addEventListener('click', function () {
+            document.querySelector('.song-details').classList.add('hidden');
+        });
+    </script>
+</body>
+</html>

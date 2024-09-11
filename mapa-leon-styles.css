@@ -129,7 +129,7 @@ body {
 .btn-close {
     padding: 10px 20px;
     background-color: #ff00ff;
-    color: #ffffff;
+    color: #282828;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -141,13 +141,7 @@ body {
     background-color: #e600e6;
 }
 
-/* Estilos adicionales para el mapa y estaciones */
-.station {
-    position: absolute;
-    cursor: pointer;
-}
-
-/* Estilos de los puntos de las estaciones */
+/* Estilos de los puntos de las estaciones con animación de pulsación */
 .station-marker {
     width: 15px;
     height: 15px;

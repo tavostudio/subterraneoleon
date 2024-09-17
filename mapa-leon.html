@@ -7,8 +7,38 @@
     <title>Ruta Subterránea - Disco León</title>
     <!-- Enlace al archivo CSS personalizado -->
     <link rel="stylesheet" href="mapa-leon-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="icono.png" type="image/png">
     <!-- Incluyendo el CSS de Leaflet -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+
+        <!-- Enlace del ícono -->
+    <link rel="icon" href="icono.png" type="image/png">
+    
+    <!-- Open Graph Meta Tags para Social Cards -->
+    <meta property="og:title" content="Ruta Subterránea - Disco León">
+    <meta property="og:description" content="¡Disco León llega pronto! Lanzamiento oficial el 30 de noviembre de 2024.">
+    <meta property="og:image" content="subte-1.jpg">
+    <meta property="og:url" content="https://subterraneomusic.com/mapa-leon.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_ES">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ruta Subterránea - Disco León">
+    <meta name="twitter:description" content="¡Disco León llega pronto! Lanzamiento oficial el 30 de noviembre de 2024.">
+    <meta name="twitter:image" content="subte-1.jpg">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4E923NB3HQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-4E923NB3HQ');
+    </script>
+
     <style>
         /* Estilos para personalizar los puntos */
         .custom-marker {
@@ -51,22 +81,26 @@
 </head>
 <body>
 
-    <!-- Menú de Navegación -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">Subterráneo</a>
-            <button class="nav-toggle" id="nav-toggle">
-                <span class="nav-toggle-icon"></span>
-            </button>
-            <ul class="nav-menu" id="nav-menu">
-                <li class="nav-item"><a href="index.html" class="nav-link">Inicio</a></li>
-                <li class="nav-item"><a href="album.html" class="nav-link">Disco León</a></li>
-                <li class="nav-item"><a href="mapa-leon.html" class="nav-link">Ruta Subterránea</a></li>
-                <li class="nav-item"><a href="band-page.html" class="nav-link">Biografía</a></li>
-                <li class="nav-item"><a href="store.html" class="nav-link">Tienda</a></li>
-            </ul>
-        </div>
-    </nav>
+<!-- Menú de Navegación -->
+<nav class="navbar">
+    <div class="nav-container">
+        <!-- Reemplazamos el texto del logo por la imagen del logo -->
+        <a href="index.html" class="nav-logo">
+            <img src="SUBTERRANEOLOGO.png" alt="Subterráneo Logo" class="logo-img">
+        </a>
+        <button class="nav-toggle" id="nav-toggle">
+            <span class="nav-toggle-icon"></span>
+        </button>
+        <ul class="nav-menu" id="nav-menu">
+            <li class="nav-item"><a href="index.html" class="nav-link">Inicio</a></li>
+            <li class="nav-item"><a href="album.html" class="nav-link">Disco León</a></li>
+            <li class="nav-item"><a href="mapa-leon.html" class="nav-link">Ruta Subterránea</a></li>
+            <li class="nav-item"><a href="band-page.html" class="nav-link">Biografía</a></li>
+            <li class="nav-item"><a href="store.html" class="nav-link">Tienda</a></li>
+        </ul>
+    </div>
+</nav>
+
 
     <!-- Sección del Mapa de León con el Subterráneo Imaginario -->
     <section class="interactive-map" style="padding-top: 70px; text-align: center;">
@@ -85,5 +119,13 @@
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
     <!-- Enlace al archivo JavaScript personalizado -->
     <script src="mapa-leon-scripts.js"></script>
+
+    <script>
+        // Toggle del menú de navegación en móvil
+        document.getElementById('nav-toggle').addEventListener('click', function () {
+            document.getElementById('nav-menu').classList.toggle('active');
+        });
+    </script>
+    
 </body>
 </html>

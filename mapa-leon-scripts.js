@@ -1,10 +1,5 @@
-// Toggle del menú de navegación en móvil
-document.getElementById('nav-toggle').addEventListener('click', function () {
-    document.getElementById('nav-menu').classList.toggle('active');
-});
-
 // Inicializando el mapa con Leaflet
-const map = L.map('map').setView([12.4378, -86.8780], 13); // León, Nicaragua
+const map = L.map('map').setView([12.4113865, -86.9286404,27557], 11); // León, Nicaragua
 
 // Cargar el mapa satelital desde Esri
 L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
@@ -25,7 +20,7 @@ const estaciones = [
         spotify: 'https://open.spotify.com/embed/track/7i2E6TIxjhZWIl85c51748?utm_source=generator' 
     },
     { 
-        coordinates: [12.437522076719636, -86.87725260800912], 
+        coordinates: [12.417260946802514, -86.89270147473856], 
         song: 'Amanecer', 
         spotify: 'https://open.spotify.com/embed/track/7i2E6TIxjhZWIl85c51748?utm_source=generator' 
     },

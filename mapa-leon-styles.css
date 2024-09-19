@@ -242,3 +242,42 @@ body {
         box-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff;
     }
 }
+
+/* Estilos del pie de página */
+.footer {
+    background-color: #1a1a1d;
+    padding: 20px;
+    text-align: center;
+    color: #cccccc;
+    font-size: 0.9rem;
+  }
+  
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .social-links {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .social-icon {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s;
+  }
+  
+  .social-icon:hover {
+    transform: scale(1.2);
+  }
+  
+  p {
+    margin: 10px 0 0 0;
+    color: #cccccc;
+  }
+  
+  

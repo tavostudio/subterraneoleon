@@ -6,13 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Subterráneo - Latin Funk y Disco</title>
     <link rel="stylesheet" href="styles2.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="icono.png" type="image/png">
+
+        <!-- Open Graph Meta Tags para Social Cards -->
+        <meta property="og:title" content="Subterráneo - Latin Funk y Disco">
+        <meta property="og:description" content="¡Disco León llega pronto! Lanzamiento oficial el 30 de noviembre de 2024.">
+        <meta property="og:image" content="subte-1.jpg">
+        <meta property="og:url" content="https://subterraneomusic.com/index.html">
+        <meta property="og:type" content="website">
+        <meta property="og:locale" content="es_ES">
+    
+        <!-- Twitter Card Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Subterráneo - Latin Funk y Disco">
+        <meta name="twitter:description" content="¡Disco León llega pronto! Lanzamiento oficial el 30 de noviembre de 2024.">
+        <meta name="twitter:image" content="subte-1.jpg">
+    
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-4E923NB3HQ"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+    
+          gtag('config', 'G-4E923NB3HQ');
+        </script>
 </head>
 <body>
-
     <!-- Menú de Navegación -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="nav-logo">Subterráneo</a>
+            <a href="index.html" class="nav-logo">
+                <img src="SUBTERRANEOLOGO.png" alt="Subterráneo Logo" class="logo-img">
+            </a>
             <button class="nav-toggle" id="nav-toggle">
                 <span class="nav-toggle-icon"></span>
             </button>
@@ -28,7 +55,7 @@
 
     <!-- Header con video corto o GIF -->
     <header class="header">
-        <video class="background-video" autoplay loop muted playsinline>
+        <video id="background-video" class="background-video" muted playsinline loop>
             <source src="videocortoloop.mp4" type="video/mp4">
             Tu navegador no soporta videos.
         </video>
@@ -37,10 +64,13 @@
             <p>Sumérgete en el latin funk, disco y city pop de León, Nicaragua.</p>
             <div class="cta-buttons">
                 <a href="mapa-leon.html" class="btn-primary">Descubre la Ruta Subterránea</a>
-                <a href="#" class="btn-secondary">Síguenos en Spotify</a>
+                <a href="https://open.spotify.com/intl-es/artist/4j7E7qZ1spg0ysrBhAwFdf?si=NXwSS10aSgWk_ipK-_SMNQ" class="btn-secondary">Síguenos en Spotify</a>
             </div>
         </div>
     </header>
+
+    <!-- JavaScript -->
+    <script src="scripts.js"></script>
 
     <!-- Sección de descripción de la banda -->
     <section class="about">
@@ -63,15 +93,7 @@
             <a href="#" target="_blank"><img src="instagram-icon.png" alt="Instagram"></a>
             <a href="#" target="_blank"><img src="spotify-icon.png" alt="Spotify"></a>
         </div>
-        <p>Contacto: <a href="mailto:contacto@subterraneomusic.com">contacto@subterraneo.com</a></p>
+        <p>Contacto: <a href="mailto:contacto@subterraneomusic.com">contacto@subterraneomusic.com</a></p>
     </footer>
-
-    <script src="scripts.js"></script>
-    <script>
-        // Toggle del menú de navegación en móvil
-        document.getElementById('nav-toggle').addEventListener('click', function () {
-            document.getElementById('nav-menu').classList.toggle('active');
-        });
-    </script>
 </body>
 </html>

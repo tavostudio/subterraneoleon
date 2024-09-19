@@ -52,8 +52,8 @@ body {
 }
 
 .nav-toggle-icon {
-    width: 25px;
-    height: 2px;
+    width: 30px;
+    height: 3px;
     background-color: #ffffff;
     display: block;
     position: relative;
@@ -64,7 +64,7 @@ body {
 .nav-toggle-icon::after {
     content: '';
     position: absolute;
-    width: 25px;
+    width: 30px;
     height: 2px;
     background-color: #ffffff;
     transition: transform 0.3s, top 0.3s, bottom 0.3s;

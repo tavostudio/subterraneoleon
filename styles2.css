@@ -1,10 +1,10 @@
-/* Estilos generales de la página */
+/* Estilos generales */
 body {
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
+  font-family: Arial, sans-serif;
   background-color: #1a1a1d;
   color: #ffffff;
+  margin: 0;
+  padding: 0;
 }
 
 /* Estilos del título destacado */
@@ -15,19 +15,18 @@ body {
   margin-bottom: 10px;
 }
 
-/* Estilos del menú de navegación */
+/* Estilos del Menú de Navegación */
 .navbar {
   background-color: #1a1a1d;
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 9999;
+  z-index: 9999; /* Asegura que el menú esté siempre por encima del contenido */
   padding: 10px 20px;
   display: flex;
   justify-content: center;
-  align-items: center;
   border-bottom: 2px solid #ff00ff;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5); /* Añade una sombra para destacarlo */
 }
 
 .nav-container {
@@ -39,13 +38,18 @@ body {
 }
 
 .nav-logo {
-  color: #ff00ff;
-  font-size: 1.8rem;
-  text-decoration: none;
-  font-weight: bold;
   display: flex;
   align-items: center;
+  margin-right: auto; /* Para alinear a la izquierda */
+  padding-left: 20px; /* Ajusta el espacio desde el borde izquierdo */
 }
+
+.logo-img {
+  max-height: 40px; /* Ajusta el tamaño del logo según se vea mejor */
+  height: auto;
+  display: block;
+}
+
 
 .nav-toggle {
   display: none;
@@ -56,8 +60,8 @@ body {
 }
 
 .nav-toggle-icon {
-  width: 25px;
-  height: 2px;
+  width: 30px;
+  height: 3px;
   background-color: #ffffff;
   display: block;
   position: relative;
@@ -68,7 +72,7 @@ body {
 .nav-toggle-icon::after {
   content: '';
   position: absolute;
-  width: 25px;
+  width: 30px;
   height: 2px;
   background-color: #ffffff;
   transition: transform 0.3s, top 0.3s, bottom 0.3s;
@@ -100,6 +104,49 @@ body {
 
 .nav-link:hover {
   color: #00ccff;
+}
+
+/* Estilos Responsivos */
+@media (max-width: 768px) {
+  .nav-toggle {
+      display: block;
+      position: absolute;
+      right: 66px; /* Ajusta la distancia desde el margen derecho */
+      top: 25px; /* Ajusta la distancia desde la parte superior */
+      z-index: 10000; /* Asegura que el botón esté visible por encima de otros elementos */
+  }
+
+  .nav-toggle-icon {
+      background-color: #ffffff;
+  }
+
+  .nav-menu {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background-color: #1a1a1d;
+      border-top: 1px solid #ff00ff;
+      padding: 20px 0;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+  }
+
+  .nav-menu.active {
+      display: flex;
+  }
+
+  .nav-link {
+      padding: 10px 20px;
+      text-align: center;
+  }
+
+  /* Alinear logo a la izquierda en móvil */
+  .nav-logo {
+      margin-right: auto;
+      padding-left: 0px; /* Añade espacio desde el margen izquierdo para alinearlo mejor */
+  }
 }
 
 /* Estilos de los botones del encabezado */
@@ -155,8 +202,9 @@ body {
   height: 100%;
   object-fit: cover;
   z-index: 1;
-  filter: brightness(0.5);
+  filter: brightness(0.5); /* Mantén el ajuste de brillo */
 }
+
 
 /* Estilos de la sección "Sobre Subterráneo" */
 .about {

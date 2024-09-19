@@ -6,26 +6,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda Subterráneo</title>
     <link rel="stylesheet" href="store-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="icono.png" type="image/png">
+        <!-- Open Graph Meta Tags para Social Cards -->
+        <meta property="og:title" content="Disco León - Subterráneo">
+        <meta property="og:description" content="¡Disco León llega pronto! Lanzamiento oficial el 30 de noviembre de 2024.">
+        <meta property="og:image" content="subte-1.jpg">
+        <meta property="og:url" content="https://subterraneomusic.com/index.html">
+        <meta property="og:type" content="website">
+        <meta property="og:locale" content="es_ES">
+    
+        <!-- Twitter Card Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Disco León - Subterráneo">
+        <meta name="twitter:description" content="¡Disco León llega pronto! Lanzamiento oficial el 30 de noviembre de 2024.">
+        <meta name="twitter:image" content="subte-1.jpg">
+    
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-4E923NB3HQ"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+    
+          gtag('config', 'G-4E923NB3HQ');
+        </script>
 </head>
 <body>
-
     <!-- Menú de Navegación -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="nav-logo">Subterráneo</a>
+            <a href="index.html" class="nav-logo">
+                <img src="SUBTERRANEOLOGO.png" alt="Subterráneo Logo" class="logo-img">
+            </a>
             <button class="nav-toggle" id="nav-toggle">
                 <span class="nav-toggle-icon"></span>
             </button>
             <ul class="nav-menu" id="nav-menu">
                 <li class="nav-item"><a href="index.html" class="nav-link">Inicio</a></li>
                 <li class="nav-item"><a href="album.html" class="nav-link">Disco León</a></li>
-                <li class="nav-item"><a href="mapa-leon.html" class="nav-link">Mapa Interactivo</a></li>
+                <li class="nav-item"><a href="mapa-leon.html" class="nav-link">Ruta Subterránea</a></li>
                 <li class="nav-item"><a href="band-page.html" class="nav-link">Biografía</a></li>
                 <li class="nav-item"><a href="store.html" class="nav-link">Tienda</a></li>
             </ul>
         </div>
     </nav>
-
     <!-- Banner Promocional de la Preventa del Álbum -->
     <section class="promo-banner" style="padding-top: 100px;">
         <h1>Preventa Exclusiva del Álbum "Disco León"</h1>

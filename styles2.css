@@ -1,6 +1,6 @@
 /* Estilos generales */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   background-color: #1a1a1d;
   color: #ffffff;
   margin: 0;
@@ -8,11 +8,19 @@ body {
 }
 
 /* Estilos del título destacado */
-.title-highlight {
+.title-highlight1 {
   font-size: 3rem;
-  color: #ffffff; /* Restauración del color rosa */
-  font-family: 'Arial', cursive; /* Restauración de la tipografía original */
+  color: #ff00ff; /* Restauración del color rosa */
   margin-bottom: 10px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.title-highlight2 {
+  font-size: 1.2  rem;
+  font-family: Arial, sans-serif;
+  margin: 10px 0;
+  margin-right: 20px;
+  margin-left: 20px;
 }
 
 /* Estilos del Menú de Navegación */
@@ -152,6 +160,7 @@ body {
 /* Estilos de los botones del encabezado */
 .btn-primary, .btn-secondary {
   display: inline-block;
+  font-family: Arial, sans-serif;
   margin: 10px 5px;
   padding: 12px 20px;
   text-decoration: none;
@@ -160,6 +169,7 @@ body {
   transition: background-color 0.3s;
   font-weight: bold;
   font-size: 1rem;
+  
 }
 
 .btn-primary {

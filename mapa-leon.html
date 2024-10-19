@@ -39,45 +39,57 @@
       gtag('config', 'G-4E923NB3HQ');
     </script>
 
-    <style>
-        /* Estilos para personalizar los puntos */
-        .custom-marker {
-            width: 15px;
-            height: 15px;
-            background-color: #ff00ff; /* Color rosado */
-            border-radius: 50%;
-            box-shadow: 0 0 10px #ff00ff; /* Sombra neón */
-        }
+<style>
+    /* Estilos para personalizar los puntos */
+    .custom-marker {
+        width: 15px;
+        height: 15px;
+        background-color: #ff00ff; /* Color rosado */
+        border-radius: 50%;
+        box-shadow: 0 0 10px #ff00ff; /* Sombra neón */
+        position: relative; /* Para posicionar el candado */
+    }
 
-        /* Estilos para la ventana emergente */
-        .song-details {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-        }
+    .lock-icon {
+        width: 10px;
+        height: 10px;
+        background-image: url('candao.png'); /* Cambia esta ruta por la de tu imagen de candado */
+        background-size: cover;
+        position: absolute;
+        top: -5px; /* Ajusta la posición según sea necesario */
+        left: 50%;
+        transform: translateX(-50%);
+    }
 
-        .hidden {
-            display: none;
-        }
+    /* Estilos para la ventana emergente */
+    .song-details {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+    }
 
-        .btn-close {
-            background-color: #ff00ff;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-        }
+    .hidden {
+        display: none;
+    }
 
-        .btn-close:hover {
-            background-color: #cc00cc;
-        }
-    </style>
+    .btn-close {
+        background-color: #ff00ff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+
+    .btn-close:hover {
+        background-color: #cc00cc;
+    }
+</style>
 </head>
 <body>
 
@@ -120,6 +132,7 @@
     <!-- Enlace al archivo JavaScript personalizado -->
     <script src="mapa-leon-scripts.js"></script>
 
+    
     <script>
         // Toggle del menú de navegación en móvil
         document.getElementById('nav-toggle').addEventListener('click', function () {

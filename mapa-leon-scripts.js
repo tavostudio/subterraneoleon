@@ -17,7 +17,7 @@ const estaciones = [
     { 
         coordinates: [12.434932697960473, -86.87882525748682], 
         song: 'Disco León', 
-        spotify: 'https://open.spotify.com/embed/track/7i2E6TIxjhZWIl85c51748?utm_source=generator' 
+        spotify: 'https://open.spotify.com/embed/track/7omJXWfbKGJq5wrsIa6Pfs?utm_source=generator' 
     },
     { 
         coordinates: [12.417260946802514, -86.89270147473856], 

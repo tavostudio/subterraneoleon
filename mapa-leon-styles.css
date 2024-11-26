@@ -141,54 +141,138 @@ body {
     }
 }
 
-
-
-
-/* Estilos del pop-up de la canción */
+/* Estilos para la ventana emergente de detalles de canción */
 .song-details {
     position: fixed;
-    top: 50%;
+    top: 50%; 
     left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #282828;
-    padding: 20px;
+    transform: translate(-50%, -50); 
+    background: #ffffff;
+    padding: 20px; 
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    width: 90%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    z-index: 1000; 
     max-width: 600px;
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 90%;
+    max-height: 70vh;
+    overflow-y: scroll; 
+    font-family: 'Montserrat', sans-serif;
+    color: #333333;
+    text-align: center;
+    -webkit-overflow-scrolling: touch; /* Desplazamiento suave en dispositivos móviles */
+    box-sizing: border-box; /* Asegurar que el padding no agregue más al ancho total */
 }
 
-.song-details.hidden {
-    display: none;
+
+/* Ajustes específicos para móviles */
+@media (max-width: 768px) {
+    .song-details {
+        top: 50%; /* Mantener el centrado en la versión móvil */
+        left: 50%;
+        transform: translate(-50%, -50%); /* Centrar en el eje X y Y */
+        padding: 15px; /* Reducir un poco el padding para móviles */
+        width: 95%; /* Ocupa un poco más de la pantalla en móviles */
+        overflow-y: scroll; /* Asegurar que el desplazamiento siempre esté presente */
+    }
+
+    .song-details h2 {
+        font-size: 1.3rem; /* Tamaño más pequeño para móviles */
+        margin: 10px 0;
+    }
 }
 
+
+/* Personalización de la barra de desplazamiento para el popup */
+.song-details::-webkit-scrollbar {
+    width: 8px; /* Reducir el ancho de la barra de desplazamiento */
+}
+
+.song-details::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+    border-radius: 10px;
+}
+
+.song-details::-webkit-scrollbar-thumb {
+    background: #ff00ff; 
+    border-radius: 10px; 
+    border: 2px solid #ffffff;
+}
+
+.song-details::-webkit-scrollbar-thumb:hover {
+    background: #cc00cc;
+}
+
+/* Título de la canción */
 .song-details h2 {
+    font-size: 1.5rem; /* Tamaño del título */
     color: #ff00ff;
     margin-bottom: 10px;
+    text-align: center; /* Centrar el título */
 }
+
 
 #spotify-embed-container {
     width: 100%;
     margin-bottom: 15px;
 }
 
-.btn-close {
-    padding: 10px 20px;
+.song-history {
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    color: #555555;
+}
+
+/* Botón para descargar material relacionado */
+.download-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 12px; /* Reducir el tamaño del botón de descarga */
     background-color: #ff00ff;
-    color: #282828;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.9rem; /* Hacer el texto más pequeño */
+}
+
+.download-link:hover {
+    background-color: #cc00cc;
+}
+
+.gift {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.gift-img {
+    width: 120px;  /* Anteriormente 60px, ahora más grande */
+    height: auto;
+    margin-top: 10px;  /* Aumentar el margen superior para dar un poco de espacio */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);  /* Añadir una sombra para darle un poco de profundidad */
+    border-radius: 8px;  /* Bordes ligeramente redondeados */
+}
+
+
+/* Botón para cerrar la ventana emergente */
+.btn-close {
+    display: inline-block; /* Permitir centrado del botón */
+    padding: 8px 16px; /* Reducir tamaño del botón */
+    background-color: #ff00ff;
+    color: #ffffff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-top: 20px;
     font-weight: bold;
     transition: background-color 0.3s;
+    text-align: center;
+    margin-left: auto; /* Para centrar el botón */
+    margin-right: auto; /* Para centrar el botón */
 }
 
+/* Botón para cerrar al pasar el ratón */
 .btn-close:hover {
-    background-color: #e600e6;
+    background-color: #cc00cc;
 }
 
 /* Estilos de los puntos de las estaciones con animación de pulsación */
@@ -226,6 +310,15 @@ body {
     height: auto;
     border: 2px solid #ffffff;
 }
+
+/* Ajustes específicos para móviles */
+@media (max-width: 768px) {
+    #map {
+        height: 80vh; /* Ajustar el mapa para que ocupe la mayor parte de la pantalla */
+        width: 100%;
+    }
+}
+
 
 /* Estilos para el ícono de estación bloqueada (candado) */
 .locked-marker .lock-icon {

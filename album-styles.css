@@ -225,6 +225,35 @@ body {
     background-color: #00ccff;
 }
 
+/* Botones en las canciones */
+.track .btn-listen,
+.track .btn-watch {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px; /* Espaciado entre botones */
+    background-color: #ff00ff;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+    font-size: 0.9rem;
+}
+
+.track .btn-watch {
+    background-color: #00ccff; /* Color diferente para distinguirlo */
+}
+
+.track .btn-listen:hover {
+    background-color: #cc00ff;
+    transform: translateY(-2px);
+}
+
+.track .btn-watch:hover {
+    background-color: #0099cc;
+    transform: translateY(-2px);
+}
+
+
 /* Pie de Página */
 .footer {
     padding: 20px;

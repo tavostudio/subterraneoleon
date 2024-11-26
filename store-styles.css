@@ -111,6 +111,7 @@ body {
         background-color: #ffffff;
     }
   
+    /* Estado inicial del menú en móvil (oculto) */
     .nav-menu {
         display: none;
         flex-direction: column;
@@ -123,10 +124,13 @@ body {
         padding: 20px 0;
         box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
     }
-  
+
+    /* Estado activo (desplegado) */
     .nav-menu.active {
         display: flex;
     }
+
+
   
     .nav-link {
         padding: 10px 20px;
@@ -142,21 +146,56 @@ body {
   
 
 /* Banner Promocional */
-.promo-banner {
+.store-banner {
+    width: 100%;
+    height: 450px; /* Aumentar la altura del banner */
+    background: linear-gradient(135deg, #ff00ff, #3333ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    padding: 50px 20px;
-    background: linear-gradient(135deg, #ff00ff, #00ccff);
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+.banner-content {
+    max-width: 800px;
+    padding: 20px;
+    padding-top: 50px;
+}
+
+.store-banner h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem; /* Aumentar el tamaño del texto */
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.store-banner p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem; /* Aumentar el tamaño del subtítulo */
+    margin-bottom: 40px;
+}
+
+.btn-banner {
+    font-family: 'Montserrat', sans-serif;
+    background: #ffffff;
+    color: #ff00ff;
+    padding: 15px 25px; /* Botón más grande */
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.btn-banner:hover {
+    transform: scale(1.1);
+    background-color: #ff00ff;
     color: #ffffff;
 }
 
-.promo-banner h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-}
-
-.promo-banner p {
-    font-size: 1.2rem;
-}
 
 .btn-preorder {
     display: inline-block;
@@ -283,4 +322,99 @@ body {
 
 .hidden {
     display: none;
+}
+.quantity-container {
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.quantity-container label {
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+.quantity-input {
+    width: 60px;
+    padding: 5px;
+    font-size: 1rem;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid #ff00ff;
+}
+
+.btn-cart {
+    background-color: #ff00ff;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    text-align: center;
+}
+
+.btn-cart:hover {
+    background-color: #cc00cc;
+    transform: translateY(-2px);
+}
+.total-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #00cc99;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/*nuevo campo*/
+.quantity-container {
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrar horizontalmente */
+    gap: 10px;
+}
+
+.quantity-controls {
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    gap: 5px;
+}
+
+.quantity-input {
+    width: 50px;
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #ff00ff;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+}
+
+.btn-quantity {
+    background-color: #ff00ff;
+    color: #ffffff;
+    border: none;
+    padding: 5px 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-quantity:hover {
+    background-color: #cc00cc;
+    transform: scale(1.1);
+}
+
+.quantity-container label {
+    font-size: 1rem;
+    color: #ffffff;
+    text-align: center; /* Asegura que el texto del label esté centrado */
 }

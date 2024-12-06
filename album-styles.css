@@ -17,7 +17,7 @@ body {
     padding: 10px 20px;
     display: flex;
     justify-content: center;
-    border-bottom: 2px solid #ff00ff;
+    border-bottom: 2px solid #ff3823;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5); /* Añade una sombra para destacarlo */
   }
   
@@ -95,7 +95,7 @@ body {
   }
   
   .nav-link:hover {
-    color: #00ccff;
+    color: #ff3823;
   }
   
   /* Estilos Responsivos */
@@ -120,7 +120,7 @@ body {
         left: 0;
         width: 100%;
         background-color: #1a1a1d;
-        border-top: 1px solid #ff00ff;
+        border-top: 1px solid #ff3823;
         padding: 20px 0;
         box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
     }
@@ -146,7 +146,7 @@ body {
 .album-header {
     text-align: center;
     padding: 20px;
-    background: linear-gradient(135deg, #ff00ff, #00ccff);
+    background: linear-gradient(135deg, #ff3823, #ff9e2a);
     color: #ffffff;
 }
 
@@ -178,7 +178,7 @@ body {
 
 .tracklist h2 {
     font-size: 2.5rem;
-    color: #ff00ff;
+    color: #ff3823;
     margin-bottom: 20px;
 }
 
@@ -197,12 +197,12 @@ body {
 
 .track:hover {
     transform: scale(1.05);
-    background: #3333ff;
+    background: #ff3823;
 }
 
 .track h3 {
     font-size: 1.5rem;
-    color: #00ccff;
+    color: #ffffff;
 }
 
 .track p {
@@ -214,7 +214,7 @@ body {
 .btn-listen {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #ff00ff;
+    background-color: #ff3823;
     color: #ffffff;
     text-decoration: none;
     border-radius: 5px;
@@ -222,7 +222,7 @@ body {
 }
 
 .btn-listen:hover {
-    background-color: #00ccff;
+    background-color: #ff9e2a;
 }
 
 /* Botones en las canciones */
@@ -231,7 +231,7 @@ body {
     display: inline-block;
     padding: 10px 20px;
     margin: 5px; /* Espaciado entre botones */
-    background-color: #ff00ff;
+    background-color: #fb8249;
     color: #ffffff;
     text-decoration: none;
     border-radius: 5px;
@@ -240,38 +240,87 @@ body {
 }
 
 .track .btn-watch {
-    background-color: #00ccff; /* Color diferente para distinguirlo */
+    background-color: #fb8249; /* Color diferente para distinguirlo */
 }
 
 .track .btn-listen:hover {
-    background-color: #cc00ff;
+    background-color: #ff9e2a;
     transform: translateY(-2px);
 }
 
 .track .btn-watch:hover {
-    background-color: #0099cc;
+    background-color: #ff9e2a;
     transform: translateY(-2px);
 }
 
+.event-item {
+  margin-bottom: 30px;
+  padding: 15px;
+  background-color: #1a1a1d;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: #ffffff;
+  text-align: center;
+}
 
-/* Pie de Página */
+.event-flyer {
+  max-width: 70%; /* Reduce el tamaño máximo al 70% del contenedor */
+  height: auto; /* Mantiene la proporción original */
+  margin: 15px auto; /* Centra la imagen */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra suave */
+  display: block; /* Asegura el centrado */
+}
+
+/* Para pantallas grandes */
+@media (min-width: 768px) {
+  .event-flyer {
+      max-width: 300px; /* Reduce aún más el tamaño máximo en pantallas grandes */
+      height: auto; /* Mantiene la proporción */
+  }
+}
+
+/* Para pantallas pequeñas (móviles) */
+@media (max-width: 767px) {
+  .event-flyer {
+      max-width: 90%; /* Se ajusta al 90% del contenedor en móviles */
+      height: auto; /* Mantiene la proporción */
+  }
+}
+
+
+/* Estilos del pie de página */
 .footer {
-    padding: 20px;
-    text-align: center;
-    background-color: #121212;
+  background-color: #1a1a1d;
+  padding: 20px;
+  text-align: center;
+  color: #cccccc;
+  font-size: 0.9rem;
 }
 
-.social-links a {
-    margin: 0 10px;
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
-.social-links img {
-    width: 30px;
-    height: 30px;
-    filter: invert(1);
-    transition: transform 0.3s;
+.social-links {
+  display: flex;
+  gap: 20px;
 }
 
-.social-links img:hover {
-    transform: scale(1.1);
+.social-icon {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s;
+}
+
+.social-icon:hover {
+  transform: scale(1.2);
+}
+
+p {
+  margin: 10px 0 0 0;
 }

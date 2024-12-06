@@ -10,8 +10,8 @@
     <link rel="icon" href="icono.png" type="image/png">
         <!-- Open Graph Meta Tags para Social Cards -->
         <meta property="og:title" content="Disco León - Subterráneo">
-        <meta property="og:description" content="¡Disco León llega pronto! Lanzamiento oficial el 30 de noviembre de 2024.">
-        <meta property="og:image" content="subte-1.jpg">
+        <meta property="og:description" content="Subterráneo es la vibrante esencia de León, Nicaragua, transformada en música.">
+        <meta property="og:image" content="bio.jpg">
         <meta property="og:url" content="https://subterraneomusic.com/index.html">
         <meta property="og:type" content="website">
         <meta property="og:locale" content="es_ES">
@@ -19,8 +19,8 @@
         <!-- Twitter Card Meta Tags -->
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:title" content="Disco León - Subterráneo">
-        <meta name="twitter:description" content="¡Disco León llega pronto! Lanzamiento oficial el 30 de noviembre de 2024.">
-        <meta name="twitter:image" content="subte-1.jpg">
+        <meta name="twitter:description" content="Subterráneo es la vibrante esencia de León, Nicaragua, transformada en música.">
+        <meta name="twitter:image" content="bio.jpg">
     
         <!-- Google tag (gtag.js) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-4E923NB3HQ"></script>
@@ -45,9 +45,9 @@
             
             <ul class="nav-menu" id="nav-menu">
                 <li class="nav-item"><a href="index.html" class="nav-link">Inicio</a></li>
-                <li class="nav-item"><a href="album.html" class="nav-link">Disco León</a></li>
-                <li class="nav-item"><a href="mapa-leon.html" class="nav-link">Ruta Subterránea</a></li>
                 <li class="nav-item"><a href="band-page.html" class="nav-link">Biografía</a></li>
+                <li class="nav-item"><a href="mapa-leon.html" class="nav-link">Ruta Subterráneo</a></li>
+                <li class="nav-item"><a href="album.html" class="nav-link">Disco León</a></li>
                 <li class="nav-item"><a href="store.html" class="nav-link">Tienda</a></li>
             </ul>
         </div>
@@ -55,7 +55,7 @@
     <div class="store-banner">
         <div class="banner-content">
             <h1>¡Descubre el Merch Oficial de Subterráneo!</h1>
-            <p>Camisetas, vinilos y posters que llevan el ritmo del funk y disco desde León, Nicaragua.</p>
+            <p></p>
             <a href="#products" class="btn-banner" onclick="scrollToProducts()">Explora la Tienda</a>
         </div>
     </div>
@@ -69,47 +69,70 @@
         <div class="product-container">
 <!-- Producto 1: Camiseta Subterráneo -->
 <div class="product-item">
-    <img src="subte-1.jpg" alt="Camiseta Subterráneo" class="product-image">
-    <h3>Camiseta Subterráneo</h3>
-    <p>Camiseta oficial de la banda con diseño exclusivo retro.</p>
-    <p class="price">$20.00</p>
+    <div class="carousel">
+        <div class="carousel-images">
+            <img src="camiseta disco leon subterraneo.jpeg" alt="Camiseta Disco León - Vista Frontal" class="carousel-image active">
+            <img src="camiseta2.jpeg" alt="Camiseta Disco León - Vista Posterior" class="carousel-image">
+            <img src="camiseta disco leon subterraneo.jpeg" alt="Camiseta Disco León - Detalle" class="carousel-image">
+        </div>
+        <button class="carousel-control prev" onclick="changeSlide(-1)">&#10094;</button>
+        <button class="carousel-control next" onclick="changeSlide(1)">&#10095;</button>
+    </div>
+    
+    <div class="modal" id="imageModal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <div class="carousel">
+                <div class="carousel-images">
+                    <img src="camiseta disco leon subterraneo.jpeg" alt="Camiseta Disco León - Vista Frontal" class="carousel-image active">
+                    <img src="camiseta2.jpeg" alt="Camiseta Disco León - Vista Posterior" class="carousel-image">
+                    <img src="camiseta disco leon subterraneo.jpeg" alt="Camiseta Disco León - Detalle" class="carousel-image">
+                </div>
+                <button class="carousel-control prev" onclick="changeSlide(-1)">&#10094;</button>
+                <button class="carousel-control next" onclick="changeSlide(1)">&#10095;</button>
+            </div>
+        </div>
+    </div>
+    <h3>Camiseta Disco León</h3>
+    <p>Camiseta oficial del sencillo Disco León</p>
+    <p class="price">$10.00</p>
     <div class="quantity-container">
         <label for="quantity-camiseta">Cantidad:</label>
         <div class="quantity-controls">
             <button type="button" class="btn-quantity" onclick="updateQuantity('quantity-camiseta', -1)">-</button>
-            <input type="number" id="quantity-camiseta" class="quantity-input" value="1" min="1" data-price="20" data-total-id="total-price-camiseta" onchange="updateTotal('quantity-camiseta', 20, 'total-price-camiseta')">
+            <input type="number" id="quantity-camiseta" class="quantity-input" value="1" min="1" data-price="10" data-total-id="total-price-camiseta" onchange="updateTotal('quantity-camiseta', 10, 'total-price-camiseta')">
             <button type="button" class="btn-quantity" onclick="updateQuantity('quantity-camiseta', 1)">+</button>
         </div>
     </div>
-    <p class="total-price" id="total-price-camiseta">Total: $20.00</p>
-    <button class="btn-buy btn-cart" onclick="handleBuy('Camiseta Subterráneo', 20, 'quantity-camiseta')">Comprar</button>
+    <p class="total-price" id="total-price-camiseta">Total: $10.00</p>
+    <button class="btn-buy btn-cart" onclick="handleBuy('Camiseta Subterráneo', 10, 'quantity-camiseta')">Comprar</button>
 </div>
 
 <!-- Producto 2: Poster Disco León -->
 <div class="product-item">
-    <img src="subte-1.jpg" alt="Poster Disco León" class="product-image">
-    <h3>Poster Disco León</h3>
-    <p>Poster oficial del álbum, edición limitada.</p>
-    <p class="price">$15.00</p>
+    <img src="stickers.jpeg" alt="Sticker Holograficos" class="product-image">
+    <h3>Sticker Holográficos</h3>
+    <p>Paquete de 3 Sticker Holograficos</p>
+    <p class="price">$1.00</p>
     <div class="quantity-container">
         <label for="quantity-poster">Cantidad:</label>
         <div class="quantity-controls">
             <button type="button" class="btn-quantity" onclick="updateQuantity('quantity-poster', -1)">-</button>
-            <input type="number" id="quantity-poster" class="quantity-input" value="1" min="1" data-price="15" data-total-id="total-price-poster" onchange="updateTotal('quantity-poster', 15, 'total-price-poster')">
+            <input type="number" id="quantity-poster" class="quantity-input" value="1" min="1" data-price="1" data-total-id="total-price-poster" onchange="updateTotal('quantity-poster', 1, 'total-price-poster')">
             <button type="button" class="btn-quantity" onclick="updateQuantity('quantity-poster', 1)">+</button>
         </div>
     </div>
-    <p class="total-price" id="total-price-poster">Total: $15.00</p>
-    <button class="btn-buy btn-cart" onclick="handleBuy('Poster Disco León', 15, 'quantity-poster')">Comprar</button>
+    <p class="total-price" id="total-price-poster">Total: $1.00</p>
+    <button class="btn-buy btn-cart" onclick="handleBuy('Poster Disco León', 1, 'quantity-poster')">Comprar</button>
 </div>
 
 
 <!-- Producto: Vinilo Disco León -->
 <div class="product-item">
-    <img src="subte-1.jpg" alt="Vinilo Disco León" class="product-image">
-    <h3>Vinilo Disco León</h3>
-    <p>Edición especial del álbum en vinilo.</p>
-    <p class="price">$30.00</p>
+    <img src="camiseta disco leon subterraneo.jpeg" alt="Tazas Glitter" class="product-image">
+    <h3>Tazas Glitter</h3>
+    <p>Edición especial de Tazas Glitter</p>
+    <p class="price">$6.00</p>
     <div class="quantity-container">
         <label for="quantity-vinilo">Cantidad:</label>
         <div class="quantity-controls">
@@ -122,24 +145,29 @@
                 min="1" 
                 data-price="30" 
                 data-total-id="total-price-vinilo" 
-                onchange="updateTotal('quantity-vinilo', 30, 'total-price-vinilo')">
+                onchange="updateTotal('quantity-vinilo', 6, 'total-price-vinilo')">
             <button type="button" class="btn-quantity" onclick="updateQuantity('quantity-vinilo', 1)">+</button>
         </div>
     </div>
-    <p class="total-price" id="total-price-vinilo">Total: $30.00</p>
-    <button class="btn-buy btn-cart" onclick="handleBuy('Vinilo Disco León', 30, 'quantity-vinilo')">Comprar</button>
+    <p class="total-price" id="total-price-vinilo">Total: $6.00</p>
+    <button class="btn-buy btn-cart" onclick="handleBuy('Vinilo Disco León', 6, 'quantity-vinilo')">Comprar</button>
 </div>
 
 
     </section>
 
-    <!-- Carrito de Compras -->
-    <section class="cart-section hidden" id="cart-section">
-        <h2>Carrito de Compras</h2>
-        <ul id="cart-items"></ul>
-        <p class="total-price">Total: $<span id="total-price">0.00</span></p>
-        <button class="btn-checkout">Proceder al Pago</button>
-    </section>
+<!-- Pie de página -->
+<footer class="footer">
+    <div class="footer-content">
+        <div class="social-links">
+            <a href="https://www.instagram.com/subterraneoni/" target="_blank"><img src="logo_ig.svg" alt="Instagram" class="social-icon"></a>
+            <a href="https://open.spotify.com/intl-es/artist/4j7E7qZ1spg0ysrBhAwFdf?si=lIIH2FeLTzqSjG_rDJkvtA" target="_blank"><img src="logo_spotify.svg" alt="Spotify" class="social-icon"></a>
+            <a href="https://www.youtube.com/@subterraneonicaragua" target="_blank"><img src="logo_yt.svg" alt="YouTube" class="social-icon"></a>
+            <a href="https://www.tiktok.com/@subterraneoni" target="_blank"><img src="logo_tiktok.svg" alt="TikTok" class="social-icon"></a>
+        </div>
+        <p>&copy; 2024 Subterráneo. Todos los derechos reservados.</p>
+    </div>
+</footer>
 
     <script src="store-scripts.js"></script>
     <script>

@@ -16,7 +16,7 @@ body {
     padding: 10px 20px;
     display: flex;
     justify-content: center;
-    border-bottom: 2px solid #ff00ff;
+    border-bottom: 2px solid #ff6326;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5); /* Añade una sombra para destacarlo */
   }
   
@@ -94,7 +94,7 @@ body {
   }
   
   .nav-link:hover {
-    color: #00ccff;
+    color: #ff6326;
   }
   
   /* Estilos Responsivos */
@@ -120,7 +120,7 @@ body {
         left: 0;
         width: 100%;
         background-color: #1a1a1d;
-        border-top: 1px solid #ff00ff;
+        border-top: 1px solid #ff6326;
         padding: 20px 0;
         box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
     }
@@ -149,7 +149,7 @@ body {
 .store-banner {
     width: 100%;
     height: 450px; /* Aumentar la altura del banner */
-    background: linear-gradient(135deg, #ff00ff, #3333ff);
+    background: linear-gradient(135deg, #ff6326, #ff9e2a);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -182,7 +182,7 @@ body {
 .btn-banner {
     font-family: 'Montserrat', sans-serif;
     background: #ffffff;
-    color: #ff00ff;
+    color: #ff6326;
     padding: 15px 25px; /* Botón más grande */
     border-radius: 5px;
     text-decoration: none;
@@ -192,7 +192,7 @@ body {
 
 .btn-banner:hover {
     transform: scale(1.1);
-    background-color: #ff00ff;
+    background-color: #ff6326;
     color: #ffffff;
 }
 
@@ -201,7 +201,7 @@ body {
     display: inline-block;
     margin: 10px;
     padding: 10px 20px;
-    background-color: #3333ff;
+    background-color: #ff6326;
     color: #ffffff;
     text-decoration: none;
     border-radius: 5px;
@@ -209,7 +209,7 @@ body {
 }
 
 .btn-preorder:hover {
-    background-color: #ff00ff;
+    background-color: #ff6326;
 }
 
 /* Sección de Productos */
@@ -221,7 +221,7 @@ body {
 
 .product-section h2 {
     font-size: 2.5rem;
-    color: #ff00ff;
+    color: #ff6326;
     margin-bottom: 20px;
 }
 
@@ -254,17 +254,17 @@ body {
 .product-item h3 {
     font-size: 1.2rem;
     margin: 10px 0;
-    color: #00ccff;
+    color: #ff6326;
 }
 
 .price {
     font-size: 1.2rem;
-    color: #ff00ff;
+    color: #ff6326;
 }
 
 .btn-add-to-cart {
     padding: 10px 15px;
-    background-color: #ff00ff;
+    background-color: #ff6326;
     color: #ffffff;
     border: none;
     border-radius: 5px;
@@ -274,6 +274,95 @@ body {
 
 .btn-add-to-cart:hover {
     background-color: #00ccff;
+}
+
+
+/* Carrusel */
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-image {
+    width: 100%;
+    display: none;
+}
+
+.carousel-image.active {
+    display: block;
+}
+
+.carousel-image {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.carousel-image.active {
+    opacity: 1;
+}
+
+
+/* Controles del Carrusel */
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.carousel-control.prev {
+    left: 10px;
+}
+
+.carousel-control.next {
+    right: 10px;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    position: relative;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 80%;
+    text-align: center;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
 }
 
 /* Carrito de Compras */
@@ -286,7 +375,7 @@ body {
 
 .cart-section h2 {
     font-size: 2rem;
-    color: #00ccff;
+    color: #ff6326;
 }
 
 #cart-items {
@@ -308,7 +397,7 @@ body {
 
 .btn-checkout {
     padding: 10px 20px;
-    background-color: #3333ff;
+    background-color: #ff6326;
     color: #ffffff;
     border: none;
     border-radius: 5px;
@@ -317,7 +406,7 @@ body {
 }
 
 .btn-checkout:hover {
-    background-color: #ff00ff;
+    background-color: #ff6326;
 }
 
 .hidden {
@@ -342,11 +431,11 @@ body {
     font-size: 1rem;
     text-align: center;
     border-radius: 5px;
-    border: 1px solid #ff00ff;
+    border: 1px solid #ff6326;
 }
 
 .btn-cart {
-    background-color: #ff00ff;
+    background-color: #ff6326;
     color: #ffffff;
     padding: 10px 20px;
     border: none;
@@ -359,13 +448,13 @@ body {
 }
 
 .btn-cart:hover {
-    background-color: #cc00cc;
+    background-color: #ff6326;
     transform: translateY(-2px);
 }
 .total-price {
     font-size: 1.2rem;
     font-weight: bold;
-    color: #00cc99;
+    color: #ff9e2a;
     margin-top: 10px;
     text-align: center;
 }
@@ -390,14 +479,14 @@ body {
     width: 50px;
     padding: 5px;
     text-align: center;
-    border: 1px solid #ff00ff;
+    border: 1px solid #ff6326;
     border-radius: 5px;
     font-size: 1rem;
     box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
 }
 
 .btn-quantity {
-    background-color: #ff00ff;
+    background-color: #ff6326;
     color: #ffffff;
     border: none;
     padding: 5px 10px;
@@ -409,7 +498,7 @@ body {
 }
 
 .btn-quantity:hover {
-    background-color: #cc00cc;
+    background-color: #ff6326;
     transform: scale(1.1);
 }
 
@@ -418,3 +507,41 @@ body {
     color: #ffffff;
     text-align: center; /* Asegura que el texto del label esté centrado */
 }
+
+/* Estilos del pie de página */
+.footer {
+    background-color: #1a1a1d;
+    padding: 20px;
+    text-align: center;
+    color: #cccccc;
+    font-size: 0.9rem;
+  }
+  
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .social-links {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .social-icon {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s;
+  }
+  
+  .social-icon:hover {
+    transform: scale(1.2);
+  }
+  
+  p {
+    margin: 10px 0 0 0;
+    color: #cccccc;
+  }
+  

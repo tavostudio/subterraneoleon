@@ -17,7 +17,7 @@ body {
     padding: 10px 20px;
     display: flex;
     justify-content: center;
-    border-bottom: 2px solid #ff00ff;
+    border-bottom: 2px solid #ff6326;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5); /* Añade una sombra para destacarlo */
 }
 
@@ -95,7 +95,7 @@ body {
 }
 
 .nav-link:hover {
-    color: #00ccff;
+    color: #ff6326;
 }
 
 /* Estilos Responsivos */
@@ -120,7 +120,7 @@ body {
         left: 0;
         width: 100%;
         background-color: #1a1a1d;
-        border-top: 1px solid #ff00ff;
+        border-top: 1px solid #ff6326;
         padding: 20px 0;
         box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
     }
@@ -193,19 +193,19 @@ body {
 }
 
 .song-details::-webkit-scrollbar-thumb {
-    background: #ff00ff; 
+    background: #ff6326; 
     border-radius: 10px; 
     border: 2px solid #ffffff;
 }
 
 .song-details::-webkit-scrollbar-thumb:hover {
-    background: #cc00cc;
+    background: #ff6326;
 }
 
 /* Título de la canción */
 .song-details h2 {
     font-size: 1.5rem; /* Tamaño del título */
-    color: #ff00ff;
+    color: #ff6326;
     margin-bottom: 10px;
     text-align: center; /* Centrar el título */
 }
@@ -227,7 +227,7 @@ body {
     display: inline-block;
     margin-top: 10px;
     padding: 6px 12px; /* Reducir el tamaño del botón de descarga */
-    background-color: #ff00ff;
+    background-color: #ff6326;
     color: #ffffff;
     text-align: center;
     text-decoration: none;
@@ -236,7 +236,7 @@ body {
 }
 
 .download-link:hover {
-    background-color: #cc00cc;
+    background-color: #ff6326;
 }
 
 .gift {
@@ -257,7 +257,7 @@ body {
 .btn-close {
     display: inline-block; /* Permitir centrado del botón */
     padding: 8px 16px; /* Reducir tamaño del botón */
-    background-color: #ff00ff;
+    background-color: #ff6326;
     color: #ffffff;
     border: none;
     border-radius: 5px;
@@ -272,17 +272,32 @@ body {
 
 /* Botón para cerrar al pasar el ratón */
 .btn-close:hover {
-    background-color: #cc00cc;
+    background-color: #ff6326;
 }
 
 /* Estilos de los puntos de las estaciones con animación de pulsación */
 .station-marker {
     width: 15px;
     height: 15px;
-    background-color: #ff00ff;
+    background-color: #ff6326;
     border-radius: 50%;
     border: 2px solid #ffffff;
     position: absolute;
+    animation: pulse 2s infinite;
+}
+
+/* Marcador para estaciones bloqueadas (gris apagado) */
+.station-marker.locked {
+    background-color: #888888; /* Gris apagado */
+    border: 2px solid #ffffff;
+    animation: none; /* Sin animación de pulso */
+    box-shadow: none !important; /* Asegura que no haya sombra */
+}
+
+/* Marcador para estaciones desbloqueadas (neón palpitante) */
+.station-marker.unlocked {
+    background-color: #ff6326; /* Neón palpitante */
+    border: 2px solid #ffffff;
     animation: pulse 2s infinite;
 }
 
@@ -295,7 +310,23 @@ body {
     font-size: 0.9rem;
     text-align: center;
 }
+/* Estilos para el contenedor de la barra de progreso */
+.progress-bar-container {
+    width: 40%;                  /* Ancho del contenedor */
+    height: 20px;                /* Altura del contenedor */
+    background-color: #333;      /* Color de fondo */
+    border-radius: 10px;         /* Bordes redondeados */
+    margin: 20px auto;           /* Centrado horizontal */
+}
 
+/* Estilos para la barra de progreso */
+.progress-bar {
+    height: 100%;                /* La barra de progreso ocupa toda la altura */
+    background-color: #ff6326;   /* Color de la barra de progreso */
+    width: 0%;                  /* Ancho de la barra (puedes modificarlo dinámicamente) */
+    border-radius: 10px;         /* Bordes redondeados */
+    transition: width 0.5s ease; /* Transición para animar el cambio de ancho */
+}
 /* Ajuste para el mapa */
 .map-container {
     display: flex;
@@ -334,15 +365,15 @@ body {
 @keyframes pulse {
     0% {
         transform: scale(1);
-        box-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff;
+        box-shadow: 0 0 5px #ff6326, 0 0 10px #ff6326, 0 0 15px #ff6326;
     }
     50% {
         transform: scale(1.2);
-        box-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 25px #ff00ff;
+        box-shadow: 0 0 10px #ff6326, 0 0 20px #ff6326, 0 0 25px #ff6326;
     }
     100% {
         transform: scale(1);
-        box-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff;
+        box-shadow: 0 0 5px #ff6326, 0 0 10px #ff6326, 0 0 15px #ff6326;
     }
 }
 
@@ -383,4 +414,14 @@ body {
     color: #cccccc;
   }
   
-  
+  .song-relation,
+.song-lyrics {
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    color: #555555;
+    text-align: left; /* Alinear texto a la izquierda para mejor lectura */
+}
+
+.song-lyrics {
+    font-style: italic; /* Opcional: darle un estilo distintivo a las letras */
+}

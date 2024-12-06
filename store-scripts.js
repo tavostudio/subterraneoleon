@@ -23,6 +23,40 @@ function scrollToProducts() {
     productsSection.scrollIntoView({ behavior: 'smooth' });
 }
 
+//carrucel
+
+let currentSlide = 0;
+
+function changeSlide(direction) {
+    const slides = document.querySelectorAll('.carousel-image');
+    
+    // Elimina la clase activa de la imagen actual
+    slides[currentSlide].classList.remove('active');
+    
+    // Calcula el nuevo índice
+    currentSlide = (currentSlide + direction + slides.length) % slides.length;
+
+    // Añade la clase activa a la nueva imagen
+    slides[currentSlide].classList.add('active');
+}
+
+
+// Abre el modal con el carrusel y reinicia a la primera imagen
+function openModal() {
+    document.getElementById('imageModal').style.display = 'flex';
+    const slides = document.querySelectorAll('.carousel-image');
+    slides.forEach((slide) => slide.classList.remove('active'));
+    slides[0].classList.add('active'); // Reinicia el carrusel al abrir el modal
+    currentSlide = 0; // Reinicia el índice del carrusel
+}
+
+
+// Cierra el modal
+function closeModal() {
+    document.getElementById('imageModal').style.display = 'none';
+}
+
+
 // Función para actualizar el precio total en tiempo real
 function updateTotal(quantityInputId, price, totalPriceId) {
     const quantityInput = document.getElementById(quantityInputId);

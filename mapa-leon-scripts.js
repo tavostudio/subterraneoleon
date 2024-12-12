@@ -1,15 +1,37 @@
-// Función para obtener la dirección IP pública del usuario
-function obtenerIP(callback) {
+// Función para generar un ID único (usada como respaldo si no hay IP)
+function generarUUID() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+        const r = (Math.random() * 16) | 0,
+            v = c === 'x' ? r : (r & 0x3) | 0x8;
+        return v.toString(16);
+    });
+}
+
+// Función para obtener el userId (intenta usar la IP, pero genera un UUID si falla)
+function obtenerUserId(callback) {
+    const userIdKey = 'userId';
+
+    // Verificar si ya tenemos un ID guardado en localStorage
+    let userId = localStorage.getItem(userIdKey);
+    if (userId) {
+        callback(userId); // Usar el ID ya existente
+        return;
+    }
+
+    // Si no hay un ID en localStorage, intentamos obtener la IP
     fetch('https://api.ipify.org?format=json')
-        .then(response => response.json())
-        .then(data => {
-            const userId = data.ip; // Usar la dirección IP como userId
+        .then((response) => response.json())
+        .then((data) => {
+            userId = data.ip; // Usar la IP como userId
+            localStorage.setItem(userIdKey, userId); // Guardar en localStorage
             callback(userId);
         })
-        .catch(error => {
-            console.error('Error al obtener la dirección IP:', error);
-            const defaultUserId = 'user_default'; // Si no se puede obtener la IP, usar un ID por defecto
-            callback(defaultUserId);
+        .catch((error) => {
+            console.error('Error al obtener la IP:', error);
+            // Generar un UUID como respaldo
+            userId = generarUUID();
+            localStorage.setItem(userIdKey, userId); // Guardar en localStorage
+            callback(userId);
         });
 }
 
@@ -26,6 +48,7 @@ L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/
 // Array de estaciones con coordenadas, datos de Spotify y nueva información
 const estaciones = [
     { 
+        id: 'station4',
         coordinates: [12.4338879, -86.8803334],
         song: 'Toda la noche', 
         spotify: 'https://open.spotify.com/embed/track/3Sjp5ZVLKzLqTi8ll8IEeP?utm_source=generator',
@@ -69,6 +92,7 @@ Bailar con vos por toda la ciudad
         descarga: 'material/toda_la_noche_subterraneo.mp3',  // Material de descarga relacionado
     },
     { 
+        id: 'station5',
         coordinates: [12.434932697960473, -86.87882525748682],
         song: 'Disco León', 
         spotify: 'https://open.spotify.com/embed/track/0gFGBpd6LiPLFMVidC9wg0?utm_source=generator',
@@ -133,6 +157,7 @@ Bailar con vos por toda la ciudad
         descarga: 'material/disco_león_subterraneo.mp3',  // Material de descarga relacionado
     },
     { 
+        id: 'station2',
         coordinates: [12.4367756,-86.8790378], 
         song: 'Amanecer', 
         spotify: 'https://open.spotify.com/embed/track/0Z59Ert8jWHxIcTjd7yxDi?utm_source=generator',
@@ -179,6 +204,7 @@ Bailar con vos por toda la ciudad
 
     },
     { 
+        id: 'station1',
         coordinates: [12.4346107, -86.8816895], 
         song: 'Funky Love', 
         spotify: 'https://open.spotify.com/embed/track/6aQX82GweFeq01KG1qO0bO?utm_source=generator',
@@ -247,7 +273,8 @@ Vos sos mi Funky Love
         descarga: 'material/funky_love_subterraneo.mp3',
     },
     { 
-        coordinates: [12.433501506831302, -86.8955729992695], 
+        id: 'station7',
+        coordinates: [12.431810193655433, -86.8880414915001], 
         song: 'El Vuelo', 
         spotify: 'https://open.spotify.com/embed/track/5JvSykCQFREhciHEVyHuYq?utm_source=generator',
         historia: `Bienvenido a la Plaza de Sutiaba, un espacio emblemático que refleja la rica herencia cultural esta comunidad.
@@ -297,7 +324,8 @@ Vos sos mi Funky Love
 `,
         descarga: 'material/el_vuelo_subterraneo.mp3',
     },
-    { 
+    {
+        id: 'station6', 
         coordinates: [12.41776514306273, -86.86961393544814], 
         song: 'Lavanda', 
         spotify: 'https://open.spotify.com/embed/track/1RR4Ssmc640PaBIm8dEfeb?utm_source=generator',
@@ -315,6 +343,7 @@ Vos sos mi Funky Love
         descarga: 'material/lavanda_subterraneo.mp3',
     },
     { 
+        id: 'station3',
         coordinates: [12.431925482787864, -86.87884519510295], 
         song: 'La Pega', 
         spotify: 'https://open.spotify.com/embed/track/5H3yKYaPa70nsn7vtVozoo?utm_source=generator',
@@ -349,8 +378,6 @@ Vos sos mi Funky Love
     }
 ];
 
-
-
 // Personalización del ícono del marcador (círculo rosado con sombra neón)
 const unlockedMarker = L.divIcon({
     className: 'custom-marker',
@@ -372,72 +399,92 @@ const storeName = 'unlockedStations';
 
 function initIndexedDB() {
     const request = indexedDB.open(dbName, 1);
-
     request.onupgradeneeded = function (event) {
         const db = event.target.result;
         if (!db.objectStoreNames.contains(storeName)) {
             db.createObjectStore(storeName, { keyPath: 'id' });
         }
+        console.log('IndexedDB inicializada.');
     };
-
     request.onerror = function (event) {
         console.error('Error al abrir IndexedDB:', event.target.errorCode);
     };
-
-    request.onsuccess = function (event) {
-        console.log('IndexedDB inicializado correctamente.');
-    };
 }
-
 initIndexedDB();
 
-// Guardar progreso en IndexedDB
+// Función para guardar progreso
 function guardarProgreso(userId, unlockedStations) {
+    console.log('Guardando progreso para ID:', userId);
     const request = indexedDB.open(dbName);
-
     request.onsuccess = function (event) {
         const db = event.target.result;
         const transaction = db.transaction(storeName, 'readwrite');
         const store = transaction.objectStore(storeName);
 
-        // Guardar o actualizar progreso
         const data = { id: userId, stations: unlockedStations };
         const putRequest = store.put(data);
-
         putRequest.onsuccess = function () {
-            console.log('Progreso guardado localmente en IndexedDB:', unlockedStations);
+            console.log('Progreso guardado:', data);
         };
-
         putRequest.onerror = function (event) {
-            console.error('Error al guardar progreso en IndexedDB:', event.target.errorCode);
+            console.error('Error al guardar progreso:', event.target.error);
         };
+    };
+    request.onerror = function (event) {
+        console.error('Error al abrir IndexedDB para guardar:', event.target.errorCode);
     };
 }
 
-// Cargar progreso desde IndexedDB
+// Función para cargar progreso
 function cargarProgreso(userId, callback) {
+    console.log('Cargando progreso para ID:', userId);
     const request = indexedDB.open(dbName);
-
     request.onsuccess = function (event) {
         const db = event.target.result;
         const transaction = db.transaction(storeName, 'readonly');
         const store = transaction.objectStore(storeName);
 
         const getRequest = store.get(userId);
-
         getRequest.onsuccess = function (event) {
             const result = event.target.result;
-            if (result) {
-                callback(result.stations);
-            } else {
-                callback([]); // Si no hay progreso guardado, devolver un array vacío
-            }
+            console.log('Progreso cargado:', result);
+            callback(result ? result.stations : []);
         };
-
         getRequest.onerror = function (event) {
-            console.error('Error al cargar progreso desde IndexedDB:', event.target.errorCode);
+            console.error('Error al cargar progreso:', event.target.error);
+            callback([]);
         };
     };
+    request.onerror = function (event) {
+        console.error('Error al abrir IndexedDB para cargar:', event.target.errorCode);
+        callback([]);
+    };
+}
+
+// Función para obtener un userId único
+function obtenerUserId(callback) {
+    const storedId = localStorage.getItem('userId');
+    if (storedId) {
+        console.log('User ID cargado de localStorage:', storedId);
+        callback(storedId);
+        return;
+    }
+
+    fetch('https://api.ipify.org?format=json')
+        .then(response => response.json())
+        .then(data => {
+            const userId = data.ip || `user_${Date.now()}`;
+            localStorage.setItem('userId', userId);
+            console.log('User ID obtenido y guardado en localStorage:', userId);
+            callback(userId);
+        })
+        .catch(error => {
+            console.error('Error al obtener la IP:', error);
+            const fallbackId = `user_${Date.now()}`;
+            localStorage.setItem('userId', fallbackId);
+            console.log('User ID de respaldo generado:', fallbackId);
+            callback(fallbackId);
+        });
 }
 
 // Añadir los marcadores al mapa solo una vez
@@ -471,7 +518,7 @@ document.querySelector('.btn-close').addEventListener('click', function () {
 });
 
 // Función para verificar proximidad y actualizar marcadores
-const proximityRadius = 50;
+const proximityRadius = 30;
 function checkProximity(userLat, userLng) {
     stationMarkers.forEach((marker, index) => {
         const estacion = estaciones[index];
@@ -483,52 +530,60 @@ function checkProximity(userLat, userLng) {
                 marker.setIcon(unlockedMarker);
                 marker.isLocked = false;
             }
-        } else {
-            if (!marker.isLocked) {
-                marker.setIcon(lockedMarker);
-                marker.isLocked = true;
-            }
-        }
-    });
+        //   
+        } 
+
+    })
 }
 
 // Obtener la ubicación en tiempo real del usuario y agregar un marcador
 let userMarker;
 let firstUpdate = true;
 
-obtenerIP(function(userId) {
+obtenerUserId(function (userId) {
+    console.log('User ID:', userId);
+
     if (navigator.geolocation) {
-        navigator.geolocation.watchPosition(function (position) {
-            const userLat = position.coords.latitude;
-            const userLng = position.coords.longitude;
+        navigator.geolocation.watchPosition(
+            function (position) {
+                const userLat = position.coords.latitude;
+                const userLng = position.coords.longitude;
 
-            if (userMarker) {
-                userMarker.setLatLng([userLat, userLng]); // Actualiza la ubicación del marcador sin crear uno nuevo
-            } else {
-                userMarker = L.marker([userLat, userLng]).addTo(map); // Crea el marcador en la primera ubicación
-            }
+                // Actualizar o crear el marcador de la ubicación del usuario
+                if (userMarker) {
+                    userMarker.setLatLng([userLat, userLng]); // Actualiza la ubicación del marcador sin crear uno nuevo
+                } else {
+                    userMarker = L.marker([userLat, userLng]).addTo(map); // Crea el marcador en la primera ubicación
+                }
 
-            // Centrar el mapa con un pequeño delay para asegurar una experiencia más fluida
-            if (firstUpdate || map.distance(userMarker.getLatLng(), [userLat, userLng]) > 50) {
-                map.setView([userLat, userLng], 13, { animate: true });
-                firstUpdate = false;
-            }
+                // Centrar el mapa en la ubicación del usuario si es la primera actualización
+                // o si se ha desplazado una distancia significativa
+                if (firstUpdate || map.distance(userMarker.getLatLng(), [userLat, userLng]) > 50) {
+                    map.setView([userLat, userLng], 13, { animate: true });
+                    firstUpdate = false;
+                }
 
-            // Verificar la proximidad del usuario a las estaciones
-            checkProximity(userLat, userLng);
+                // Verificar la proximidad del usuario a las estaciones
+                checkProximity(userLat, userLng);
 
-            // Aquí se puede comprobar qué estaciones han sido desbloqueadas y guardarlas
-            const unlockedStations = stationMarkers.filter(marker => !marker.isLocked).map(marker => estaciones[stationMarkers.indexOf(marker)].song);
+                // Obtener las estaciones desbloqueadas
+                const unlockedStations = stationMarkers
+                    .filter(marker => !marker.isLocked)
+                    .map(marker => estaciones[stationMarkers.indexOf(marker)].id);
 
-            // Guardar el progreso en IndexedDB
-            guardarProgreso(userId, unlockedStations);
-        }, function () {
-            alert('No se pudo obtener la ubicación.');
-        }, { enableHighAccuracy: true, maximumAge: 3000, timeout: 5000 });
+                // Guardar el progreso en IndexedDB
+                guardarProgreso(userId, unlockedStations);
+            },
+            function () {
+                alert('No se pudo obtener la ubicación.');
+            },
+            { enableHighAccuracy: true, maximumAge: 2000, timeout: 4000 }
+        );
     } else {
         alert('Tu navegador no soporta geolocalización.');
     }
 });
+
 
 // Función para actualizar la barra de progreso
 function actualizarProgresoBarra() {

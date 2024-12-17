@@ -117,8 +117,12 @@
     <!-- Sección del Mapa de León con el Subterráneo Imaginario -->
     <section class="interactive-map" style="padding-top: 70px; text-align: center;">
         <h1>Explora León con Disco León</h1>
-        <div id="map" class="map-container" style="width: 100%; height: 500px;"></div>
+        <div id="map" class="map-container" style="width: 100%; height: 450px;"></div>
     </section>
+
+<div class="titulo-progreso">
+    <h3>Progreso:</h3>
+</div>   
 
  <!-- Barra de progreso -->
 <div class="progress-bar-container">
@@ -163,6 +167,44 @@
         <p>&copy; 2024 Subterráneo. Todos los derechos reservados.</p>
     </div>
 </footer>
-    
+
+    <!-- Botón flotante para instrucciones -->
+<div class="floating-button" id="instructions-button">?</div>
+
+<!-- Menú de instrucciones -->
+<div class="instructions-menu hidden" id="instructions-menu">
+    <h2>Instrucciones</h2>
+    <p>1. Explora las estaciones destacadas en el mapa marcadas con puntos.</p>
+    <p>2. Acércate físicamente a una estación para desbloquear su contenido especial.</p>
+    <p>3. Haz clic en el marcador para descubrir:
+        <ul class="instructions-vienetas">
+            <li>La canción relacionada y su historia.</li>
+            <li>Material descargable exclusivo (ej. MP3).</li>
+            <li>La letra completa de la canción.</li>
+        </ul>
+    </p>
+    <p>4. Desbloquea todas las estaciones para obtener una sorpresa especial.</p>
+    <p>5. Usa el botón "Cerrar" para ocultar información adicional.</p>
+    <p><br></p>
+    <button class="btn-close-instructions" id="close-instructions">Cerrar</button>
+</div>
+
+<script>
+    // Referencias a elementos
+    const instructionsButton = document.getElementById('instructions-button');
+    const instructionsMenu = document.getElementById('instructions-menu');
+    const closeInstructions = document.getElementById('close-instructions');
+
+    // Mostrar el menú de instrucciones
+    instructionsButton.addEventListener('click', () => {
+        instructionsMenu.classList.toggle('hidden');
+    });
+
+    // Ocultar el menú de instrucciones
+    closeInstructions.addEventListener('click', () => {
+        instructionsMenu.classList.add('hidden');
+    });
+</script>
+
 </body>
 </html>

@@ -50,7 +50,7 @@ var estaciones = [
     { 
         id: 'station4',
         estado:true,
-        coordinates: [12.4338879, -86.8803334],
+        coordinates: [12.433747850816363, -86.88047674554787],
         song: 'Toda la noche', 
         spotify: 'https://open.spotify.com/embed/track/3Sjp5ZVLKzLqTi8ll8IEeP?utm_source=generator',
         historia: 'En este momento te encuentras en el majestuoso Teatro José de la Cruz Mena, un ícono cultural de León, Nicaragua, y un homenaje vivo al legado del célebre compositor que lleva su nombre. Inaugurado en 1905, este teatro se alza como un testigo de la rica historia artística de la ciudad. Con su arquitectura neoclásica y su elegante fachada, ha sido el escenario de innumerables presentaciones de ópera, teatro y música que han cautivado a generaciones. Cada rincón del teatro guarda ecos de aplausos y melodías que conectan el pasado con el presente, haciendo de este espacio una parada obligatoria para los amantes de la cultura y la historia.',
@@ -161,7 +161,7 @@ Bailar con vos por toda la ciudad
     { 
         id: 'station2',
         estado:true,
-        coordinates: [12.4367756,-86.8790378], 
+        coordinates: [12.437028, -86.8798251], 
         song: 'Amanecer', 
         spotify: 'https://open.spotify.com/embed/track/0Z59Ert8jWHxIcTjd7yxDi?utm_source=generator',
         historia: `Bienvenido al histórico Paraninfo de la Universidad Nacional Autónoma de Nicaragua, León (UNAN-León), un emblemático edificio que ha sido testigo de momentos clave en la historia de Nicaragua. Fundada en 1812, la UNAN-León es la universidad más antigua del país y ha sido un centro de conocimiento y cultura durante más de dos siglos.
@@ -209,7 +209,7 @@ Bailar con vos por toda la ciudad
     { 
         id: 'station1',
         estado:true,
-        coordinates: [12.4346107, -86.8816895], 
+        coordinates: [12.434959, -86.8823091], 
         song: 'Funky Love', 
         spotify: 'https://open.spotify.com/embed/track/6aQX82GweFeq01KG1qO0bO?utm_source=generator',
         historia: `Bienvenido al Centro de Arte Fundación Ortiz-Gurdián, un tesoro cultural en el corazón de la ciudad. Este museo, inaugurado en el año 2000, está compuesto de seis casas coloniales restauradas que datan de los siglos XVIII y XIX, cada una con su propia historia y arquitectura distintiva.
@@ -279,7 +279,7 @@ Vos sos mi Funky Love
     { 
         id: 'station7',
         estado:true,
-        coordinates: [12.431810193655433, -86.8880414915001], 
+        coordinates: [12.43359223077556, -86.89552607333378], 
         song: 'El Vuelo', 
         spotify: 'https://open.spotify.com/embed/track/5JvSykCQFREhciHEVyHuYq?utm_source=generator',
         historia: `Bienvenido a la Plaza de Sutiaba, un espacio emblemático que refleja la rica herencia cultural esta comunidad.
@@ -582,6 +582,13 @@ function checkProximity(userLat, userLng) {
     })
 }
 
+// Definir un ícono personalizado para la ubicación del usuario
+const userIcon = L.icon({
+    iconUrl: 'esedesubterraneo.png', // Cambia esto por la ruta de tu imagen
+    iconSize: [40, 40], // Tamaño del ícono [ancho, alto]
+    iconAnchor: [20, 40], // Punto del ícono que se posicionará en la ubicación [x, y]
+    popupAnchor: [0, -40], // Punto donde se abrirá el popup (si usas uno)
+});
 // Obtener la ubicación en tiempo real del usuario y agregar un marcador
 let userMarker;
 let firstUpdate = true;
@@ -636,7 +643,7 @@ function actualizarProgresoBarra() {
     // Calcula el porcentaje de progreso basado en las estaciones desbloqueadas
     const totalEstaciones = estaciones.length;
     const estacionesDesbloqueadas = stationMarkers.filter(marker => !marker.isLocked).length;
-    const progreso = (estacionesDesbloqueadas / totalEstaciones) * 100;
+    const progreso = (estacionesDesbloqueadas / totalEstaciones) * 7;
 
     // Actualizar la barra de progreso con el nuevo valor
     const progressBar = document.getElementById('progress-bar');

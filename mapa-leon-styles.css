@@ -350,17 +350,6 @@ body {
     }
 }
 
-
-/* Estilos para el ícono de estación bloqueada (candado) */
-.locked-marker .lock-icon {
-    width: 24px;
-    height: 24px;
-    background-image: url('cadao.png'); /* Asegúrate de ajustar la ruta de la imagen */
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
 /* Animación de pulsación y brillo */
 @keyframes pulse {
     0% {
@@ -428,8 +417,8 @@ body {
 /* Estilos para el botón flotante */
 .floating-button {
     position: fixed;
-    bottom: 45px;
-    right: 20px;
+    bottom: 48px;
+    right: 35px;
     width: 50px;
     height: 50px;
     background-color: #ff6326;
@@ -444,10 +433,13 @@ body {
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 1000;
+    animation: pulse 2s infinite;
+    
 }
 
 .floating-button:hover {
     background-color: #e55422;
+    
 }
 
 /* Estilos para el menú de instrucciones */
@@ -505,11 +497,7 @@ body {
     color: #e55422;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
-    font-size: 8px;
+    font-size: 10px;
     padding-top: 10px
     
-}
-
-.my-icon-class {
-    color: #e55422; /* Cambia este color según tu preferencia */
 }

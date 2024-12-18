@@ -1,173 +1,311 @@
 /* Estilos generales */
 body {
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #1a1a1d;
-    color: #ffffff;
-    text-align: center;
-    position: relative; /* Para el fondo de la imagen */
+  font-family: 'Montserrat', sans-serif;
+  background-color: #1a1a1d;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
 }
 
-body::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('subte-1.jpg') no-repeat center top;
-    background-size: contain;
-    z-index: -1;
-    filter: brightness(0.7);
+/* Estilos del título destacado */
+.title-highlight1 {
+  font-size: 3rem;
+  color: #ff3823; /* Restauración del color rosa */
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
-.countdown-container {
-    padding: 20px;
-    border: 2px solid #ff00ff;
-    border-radius: 10px;
-    background: rgba(0, 0, 0, 0.7);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    z-index: 1;
-    width: 95vw; /* Ajustado para aprovechar el espacio */
-    max-width: 375px; /* Específico para esa resolución */
-    animation: neon-flicker 2s infinite alternate; /* Añadido animación de neón */
+.title-highlight2 {
+  font-size: 1.2  rem;
+  font-family: Arial, sans-serif;
+  margin: 10px 0;
+  margin-right: 20px;
+  margin-left: 20px;
 }
 
-.title {
-    font-size: 4rem; /* Ajuste estándar para el tamaño del texto */
-    color: #ff00ff;
-    margin-bottom: 10px;
+/* Estilos del Menú de Navegación */
+.navbar {
+  background-color: #1a1a1d;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999; /* Asegura que el menú esté siempre por encima del contenido */
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  border-bottom: 2px solid #ff3823;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5); /* Añade una sombra para destacarlo */
 }
 
-.subtitle {
-    font-size: 2rem;
-    margin-bottom: 15px;
-    color: #cccccc;
+.nav-container {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.countdown {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
+.nav-logo {
+  display: flex;
+  align-items: center;
+  margin-right: auto; /* Para alinear a la izquierda */
+  padding-left: 20px; /* Ajusta el espacio desde el borde izquierdo */
 }
 
-.time {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.logo-img {
+  max-height: 40px; /* Ajusta el tamaño del logo según se vea mejor */
+  height: auto;
+  display: block;
 }
 
-.number {
-    font-size: 3rem; /* Tamaño estándar para el texto */
-    color: #00ccff;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
 }
 
-.label {
-    font-size: 1.5rem;
-    color: #cccccc;
+.nav-toggle-icon {
+  width: 30px;
+  height: 3px;
+  background-color: #ffffff;
+  display: block;
+  position: relative;
+  transition: 0.3s;
 }
 
-/* Efecto neón */
-@keyframes neon-flicker {
-    0%, 100% {
-        box-shadow: 0 0 10px #ff00ff, 0 0 20px #00ccff, 0 0 30px #ff00ff;
-    }
-    100% {
-        box-shadow: 0 0 5px #ff00ff, 0 0 10px #00ccff;
-    }
+.nav-toggle-icon::before,
+.nav-toggle-icon::after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 2px;
+  background-color: #ffffff;
+  transition: transform 0.3s, top 0.3s, bottom 0.3s;
 }
 
-/* Estilos de los botones de redes sociales */
-.social-container {
-    margin-top: 25px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
+.nav-toggle-icon::before {
+  top: -8px;
 }
 
-.social-btn {
-    padding: 8px;
-    border-radius: 50%;
-    background-color: #1a1a1d;
-    border: 2px solid #ff00ff;
-    box-shadow: 0 0 10px #ff00ff, 0 0 20px #00ccff;
-    transition: all 0.3s ease;
+.nav-toggle-icon::after {
+  bottom: -8px;
 }
 
-.social-btn img {
-    width: 30px;
-    height: 30px;
+.nav-menu {
+  display: flex;
+  gap: 20px;
 }
 
-.social-btn:hover {
-    background-color: #ff00ff;
-    box-shadow: 0 0 15px #ff00ff, 0 0 30px #00ccff;
+.nav-item {
+  list-style: none;
 }
 
-/* Ajustes para dispositivos móviles */
-@media (max-width: 450px) {
-    .title {
-        font-size: 1.5rem; /* Ajustado más pequeño */
-    }
-
-    .subtitle {
-        font-size: 1.5rem;
-    }
-
-    .number {
-        font-size: 2rem; /* Ajustado más pequeño */
-    }
-
-    .label {
-        font-size: 1rem;
-    }
-
-    .social-btn img {
-        width: 25px;
-        height: 25px;
-    }
-
-    .countdown-container {
-        padding: 15px;
-        width: 90vw; /* Ajuste para pantallas más pequeñas */
-    }
+.nav-link {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1rem;
+  transition: color 0.3s;
 }
 
-/* Ajustes para pantallas más pequeñas (iPhone SE y similares) */
-@media (max-width: 375px) {
-    .title {
-        font-size: 1.8rem; /* Ajuste aún más pequeño */
-    }
-
-    .subtitle {
-        font-size: 1.2rem;
-    }
-
-    .number {
-        font-size: 1.5rem; /* Ajuste aún más pequeño */
-    }
-
-    .label {
-        font-size: 0.9rem;
-    }
-
-    .social-btn img {
-        width: 20px;
-        height: 20px;
-    }
-
-    .countdown-container {
-        padding: 10px;
-        width: 85vw; /* Ajuste para pantallas muy pequeñas */
-    }
+.nav-link:hover {
+  color: #ff3823;
 }
+
+/* Estilos Responsivos */
+@media (max-width: 768px) {
+  .nav-toggle {
+      display: block;
+      position: absolute;
+      right: 66px; /* Ajusta la distancia desde el margen derecho */
+      top: 25px; /* Ajusta la distancia desde la parte superior */
+      z-index: 10000; /* Asegura que el botón esté visible por encima de otros elementos */
+  }
+
+  .nav-toggle-icon {
+      background-color: #ffffff;
+  }
+
+  .nav-menu {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background-color: #1a1a1d;
+      border-top: 1px solid #ff3823;
+      padding: 20px 0;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+  }
+
+  .nav-menu.active {
+      display: flex;
+  }
+
+  .nav-link {
+      padding: 10px 20px;
+      text-align: center;
+  }
+
+  /* Alinear logo a la izquierda en móvil */
+  .nav-logo {
+      margin-right: auto;
+      padding-left: 0px; /* Añade espacio desde el margen izquierdo para alinearlo mejor */
+  }
+}
+
+/* Estilos de los botones del encabezado */
+.btn-primary, .btn-secondary {
+  display: inline-block;
+  font-family: Arial, sans-serif;
+  margin: 10px 5px;
+  padding: 12px 20px;
+  text-decoration: none;
+  color: #ffffff;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  font-weight: bold;
+  font-size: 1rem;
+  
+}
+
+.btn-primary {
+  background-color: #ff3823;
+}
+
+.btn-primary:hover {
+  background-color: #ff9e2a;
+}
+
+.btn-secondary {
+  background-color: #ff3823;
+}
+
+.btn-secondary:hover {
+  background-color: #ff9e2a;
+}
+
+/* Estilos del header */
+.header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
+  height:100vh; /* Restaurado a su tamaño original */
+}
+
+.header-content {
+  position: relative;
+  z-index: 2;
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  filter: brightness(0.5); /* Mantén el ajuste de brillo */
+}
+
+
+/* Estilos de la sección "Sobre Subterráneo" */
+.about {
+  text-align: center;
+  padding: 40px 20px;
+  margin-bottom: 40px;
+}
+
+.about h2 {
+  font-size: 2rem;
+  color: #ff3823;
+}
+
+.about p {
+  max-width: 800px;
+  margin: 0 auto 20px auto;
+  font-size: 1.2rem;
+  color: #cccccc;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Estilos de la nueva sección "Ruta Subterránea" */
+.explore-map {
+  padding: 60px 20px;
+  background-color: #282828;
+  text-align: center;
+}
+
+.explore-map h2 {
+  font-size: 2rem;
+  color: #ff3823;
+  margin-bottom: 20px;
+}
+
+.explore-map p {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto 30px auto;
+  color: #cccccc;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.btn-explore {
+  background-color: #ff3823;
+  padding: 14px 24px;
+  text-decoration: none;
+  color: #ffffff;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.btn-explore:hover {
+  background-color: #ff9e2a;
+}
+
+/* Estilos del pie de página */
+.footer {
+  background-color: #1a1a1d;
+  padding: 20px;
+  text-align: center;
+  color: #cccccc;
+  font-size: 0.9rem;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.social-links {
+  display: flex;
+  gap: 20px;
+}
+
+.social-icon {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s;
+}
+
+.social-icon:hover {
+  transform: scale(1.2);
+}
+
+p {
+  margin: 10px 0 0 0;
+  color: #cccccc;
+}
+
